@@ -1,0 +1,22 @@
+{
+  "name": "red-news",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node data/getQuotes.js && echo 'Got quotes' && node data/getJapaneseWords.js && echo 'got Japanese words' && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.0",
+    "json-loader": "^0.5.7"
+  }
+}
