@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deployment
+
+This project is hosted on Vercel. It is connected to Github repository, so simply push changes to GitHub to update site.
+
+```batch
+git add .
+git commit -m "message"
+git push
+```
+
+Visit at ['red-news.vercel.app'](https://red-news.vercel.app)
 
 ## Getting Started
 
