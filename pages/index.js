@@ -1,12 +1,17 @@
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Quotes from "../components/Quotes";
 import JapaneseWords from "../components/JapaneseWords";
 import NewsFeeds from "../components/NewsFeeds/NewsFeeds";
+import GetNewsFeeds from "../components/NewsFeeds/GetNewsFeeds";
 import SelectButton from "../components/SelectButton/SelectButton";
 
 export default function Home() {
+  // Set the news source
+  const [source, setSource] = useState("fox-news");
+
   return (
     <div className={styles.container}>
       {/* <Quotes /> */}
@@ -18,11 +23,12 @@ export default function Home() {
       </Head>
       <div className={styles.header}>
         <h1 className={styles.title}>Red News</h1>
-        <SelectButton />
+        <SelectButton source={source} setSource={setSource} />
       </div>
 
       <main className={styles.main}>
-        <NewsFeeds />
+        {/* <NewsFeeds source={source} /> */}
+        <GetNewsFeeds source={source} />
         <p>-----------------------------------------</p>
         {/* <p className={styles.description}>
           Get started by editing{" "}

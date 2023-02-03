@@ -16,7 +16,7 @@
     border-radius: 5px;
 }
 
-.headlineContainer:nth-child(odd) {
+/* .headlineContainer:nth-child(odd) {
     background-color: rgb(66, 54, 77);
     border-radius: 5px;
     font-size: 1.5rem;
@@ -27,4 +27,4 @@
     border-radius: 5px;
     font-size: 1.5rem;
     
-}
+} */
