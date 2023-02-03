@@ -1,6 +1,6 @@
 import React from "react";
-// import quotes from "../data/quotes";
-import quotes from "../data/json/quotes";
+// import quotes from "../quotes/quotes";
+import quotes from "../data/quotes/quotes";
 
 function Quotes() {
   return (

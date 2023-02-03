@@ -1,5 +1,5 @@
 import React from "react";
-import japanese from "../data/json/japaneseWords.json";
+import japanese from "../data/japanese/japanese.json";
 import styles from "./JapaneseWords.module.css";
 
 function JapaneseWords() {

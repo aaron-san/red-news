@@ -23,4 +23,4 @@ worksheet["!ref"] = colStart + rowStart + ":" + "B" + "4000";
 
 let jsObj = XLSX.utils.sheet_to_json(worksheet);
 
-fs.writeFileSync("data/json/japaneseWords.json", JSON.stringify(jsObj));
+fs.writeFileSync("data/japanese/japanese.json", JSON.stringify(jsObj));

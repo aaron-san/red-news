@@ -24,4 +24,4 @@ rowEnd = range.split(":")[1].match(/\d/gi).join("");
 
 let jsObj = XLSX.utils.sheet_to_json(worksheet);
 
-fs.writeFileSync("data/json/quotes.json", JSON.stringify(jsObj));
+fs.writeFileSync("data/quotes/quotes.json", JSON.stringify(jsObj));
