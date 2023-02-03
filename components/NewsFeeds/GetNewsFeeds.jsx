@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from "react";
 import Parser from "rss-parser";
-
+import styles from "./NewsFeeds.module.css";
 // import news feed selector from other component and use to make a switch case here
 
 const GetNewsFeeds = ({ source }) => {
   // const [isLoading, setIsLoading] = useState(false);
 
   // const source = "fox-news";
-  let link;
 
+  let url;
+  const [posts, setPosts] = useState([]);
   switch (source) {
     case "fox-news":
-      link = "https://moxie.foxnews.com/google-publisher/world.xml";
+      url = "https://moxie.foxnews.com/google-publisher/world.xml";
       break;
-    case "daily-caller":
-      link = "http://feeds.feedburner.com/dailycaller";
-      break;
-    // case "las-vegas-review-journal":
-    //   link = "https://www.reviewjournal.com/feed/";
+    // case "daily-caller":
+    //   url = "http://feeds.feedburner.com/dailycaller";
     //   break;
+    case "las-vegas-review-journal":
+      url = "https://www.reviewjournal.com/feed/";
+      break;
     // case "mercury-news":
-    //   link = "https://www.mercurynews.com/feed/";
+    //   url = "https://www.mercurynews.com/feed";
     //   break;
     // case "one-america-news":
-    //   link = "https://www.oann.com/category/newsroom/feed";
+    //   url = "https://www.oann.com/category/newsroom/feed";
     //   break;
     default:
-      link = "https://moxie.foxnews.com/google-publisher/world.xml";
+      url = "https://moxie.foxnews.com/google-publisher/world.xml";
   }
 
-  const [posts, setPosts] = useState([]);
+  // Note: some RSS feeds can't be loaded in the browser due to CORS security.
+  // To get around this, you can use a proxy.
+  // const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
   useEffect(() => {
     // setIsLoading(true);
@@ -37,7 +40,8 @@ const GetNewsFeeds = ({ source }) => {
     const parser = new Parser();
 
     const fetchPosts = async () => {
-      const feed = await parser.parseURL(link);
+      console.log(url);
+      const feed = await parser.parseURL(url);
       console.log(feed.items);
       setPosts(feed.items);
 
@@ -53,7 +57,7 @@ const GetNewsFeeds = ({ source }) => {
       // );
     };
     fetchPosts();
-  }, [link]);
+  }, [url]);
 
   // if (isLoading) return <p>Loading...</p>;
   // if (!data) {
@@ -61,11 +65,22 @@ const GetNewsFeeds = ({ source }) => {
   // } else {
   // console.log(data);
   return (
-    <ul>
-      {posts.map((headline) => {
-        return <li key={headline.title}>{headline.title}</li>;
+    // <ul>
+    //   {posts.map((headline) => {
+    //     return <li key={headline.title}>{headline.title}</li>;
+    //   })}
+    // </ul>
+    <div className="div-container">
+      {posts.slice(0, 15).map((item) => {
+        return (
+          <div key={item.title} className={styles.headlineContainer}>
+            <a href={item.guid} className={styles.headline}>
+              {item.title}
+            </a>
+          </div>
+        );
       })}
-    </ul>
+    </div>
   );
 };
 

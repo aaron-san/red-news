@@ -16,6 +16,12 @@
     border-radius: 5px;
 }
 
+
+.headlineContainer {
+    box-shadow: 0 0 5px lightslategray;
+    border-radius: 6px;
+    margin: 20px;
+}
 /* .headlineContainer:nth-child(odd) {
     background-color: rgb(66, 54, 77);
     border-radius: 5px;

@@ -18,9 +18,12 @@ const SelectButton = ({ source, setSource }) => {
         <option value="fox-news" className={styles.option}>
           Fox News
         </option>
-        <option value="daily-caller" className={styles.option}>
-          Daily Caller
+        <option value="las-vegas-review-journal" className={styles.option}>
+          Las Vegas Review
         </option>
+        {/* <option value="one-america-news" className={styles.option}>
+          One America News
+        </option> */}
       </select>
     </div>
   );
