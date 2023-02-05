@@ -2,7 +2,9 @@
 
 .gitignore
 package-lock.json
-
+.eslintrc.json
+.eslintignore
+notes.txt
 
 # dependencies
 node_modules/
