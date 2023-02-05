@@ -1,3 +1,6 @@
 npx create-next-app .
 (or, if in parent directory):
 npx create-next-app portfolio-blog
+
+
+Can delete .next (build) folder and do 'npm install' if the build is not clean
