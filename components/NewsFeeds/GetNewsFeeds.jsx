@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Parser from "rss-parser";
 import styles from "./NewsFeeds.module.css";
+import axios from "axios";
+// import $ from "jquery";
 // import news feed selector from other component and use to make a switch case here
 
 const GetNewsFeeds = ({ source }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // const source = "fox-news";
+  const [isLoading, setIsLoading] = useState(false);
 
   let url;
   const [posts, setPosts] = useState([]);
   switch (source) {
     case "fox-news":
-      url = "https://moxie.foxnews.com/google-publisher/world.xml";
+      url = "https://moxie.foxnews.com/google-publisher/latest.xml";
       break;
     // case "daily-caller":
     //   url = "http://feeds.feedburner.com/dailycaller";
@@ -26,8 +26,18 @@ const GetNewsFeeds = ({ source }) => {
     // case "one-america-news":
     //   url = "https://www.oann.com/category/newsroom/feed";
     //   break;
+    case "daily-wire":
+      url = "https://www.dailywire.com/feeds/rss.xml";
+      break;
+    case "bongino-report":
+      url = "https://bonginoreport.com/feed/";
+      break;
+    case "the-blaze":
+      url = "https://www.theblaze.com/feeds/feed.rss";
+      break;
     default:
-      url = "https://moxie.foxnews.com/google-publisher/world.xml";
+      // url = "https://moxie.foxnews.com/google-publisher/world.xml";
+      throw new Error("please choose a news source");
   }
 
   // Note: some RSS feeds can't be loaded in the browser due to CORS security.
@@ -35,43 +45,44 @@ const GetNewsFeeds = ({ source }) => {
   // const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
 
-    const parser = new Parser();
+    async function fetchPosts(url) {
+      await axios
+        .get("https://corsanywhere.herokuapp.com/" + url)
+        .then((res) => {
+          const feeds = res.data;
+          let parser = new DOMParser();
+          let xmlDoc = parser.parseFromString(feeds, "text/xml");
 
-    const fetchPosts = async () => {
-      console.log(url);
-      const feed = await parser.parseURL(url);
-      console.log(feed.items);
-      setPosts(feed.items);
+          var items = xmlDoc.querySelectorAll("item");
+          let itemsArray = Array.from(items);
 
-      // Add the item to the items array
-      // await Promise.all(
-      // feed.items.map(async (currentItem) => {
-      // Add a new item if it doesn't already exist
-      //     if (items.filter((item) => item === currentItem).length <= 1) {
-      //       setData((items) => [...items, currentItem]);
-      //       // items.push(currentItem);
-      //     }
-      // })
-      // );
-    };
-    fetchPosts();
+          let itemsArr = [];
+          itemsArray.forEach((item) => {
+            let title = item.querySelector("title").innerHTML;
+
+            title;
+
+            let permalink = item.querySelector("guid").innerHTML;
+            itemsArr = [...itemsArr, { title: title, url: permalink }];
+          });
+          setPosts(itemsArr);
+        });
+    }
+
+    fetchPosts(url);
+    setIsLoading(false);
   }, [url]);
 
-  // if (isLoading) return <p>Loading...</p>;
-  // if (!data) {
-  //   return <p>No data loaded</p>;
-  // } else {
-  // console.log(data);
-  return (
-    // <ul>
-    //   {posts.map((headline) => {
-    //     return <li key={headline.title}>{headline.title}</li>;
-    //   })}
-    // </ul>
-    <div className="div-container">
-      {posts.slice(0, 15).map((item) => {
+  if (isLoading) return <p>Loading...</p>;
+  if (!posts) {
+    return <p>No data loaded</p>;
+  } else {
+    // console.log(data);
+    return (
+      <div className="div-container">
+        {/* {posts.slice(0, 15).map((item) => {
         return (
           <div key={item.title} className={styles.headlineContainer}>
             <a href={item.guid} className={styles.headline}>
@@ -79,9 +90,17 @@ const GetNewsFeeds = ({ source }) => {
             </a>
           </div>
         );
-      })}
-    </div>
-  );
+      })} */}
+        {posts.slice(0, 15).map((post) => {
+          return (
+            <ul key={post.url}>
+              <a href={post.url}>{post.title}</a>
+            </ul>
+          );
+        })}
+      </div>
+    );
+  }
 };
 
 export default GetNewsFeeds;

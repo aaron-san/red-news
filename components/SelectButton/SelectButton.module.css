@@ -5,10 +5,12 @@
 }
 
 .selectButton {
-    background-color: darkslategray;
-    color: whitesmoke;
-    padding: 10px;
-    font-size: 1.2rem;
-    border-radius: 6px;
+    background-color: none;
+    width: fit-content;
+    color: lightgrey;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid rgb(176, 171, 171);
+    border-radius: 2px;
 }
 

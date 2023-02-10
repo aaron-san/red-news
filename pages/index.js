@@ -7,6 +7,9 @@ import JapaneseWords from "../components/JapaneseWords";
 import NewsFeeds from "../components/NewsFeeds/NewsFeeds";
 import GetNewsFeeds from "../components/NewsFeeds/GetNewsFeeds";
 import SelectButton from "../components/SelectButton/SelectButton";
+import cors from "cors";
+// const cors = require("cors");
+// app.use(cors());
 
 export default function Home() {
   // Set the news source
@@ -29,7 +32,7 @@ export default function Home() {
       <main className={styles.main}>
         {/* <NewsFeeds source={source} /> */}
         <GetNewsFeeds source={source} />
-        <p>-----------------------------------------</p>
+        {/* <p>-----------------------------------------</p> */}
         {/* <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
