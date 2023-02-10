@@ -91,13 +91,15 @@ const GetNewsFeeds = ({ source }) => {
           </div>
         );
       })} */}
-        {posts.slice(0, 15).map((post) => {
-          return (
-            <ul key={post.url}>
-              <a href={post.url}>{post.title}</a>
-            </ul>
-          );
-        })}
+        <ul>
+          {posts.slice(0, 15).map((post) => {
+            return (
+              <div className={styles.headlineContainer} key={post.url}>
+                <a href={post.url}>{post.title}</a>
+              </div>
+            );
+          })}
+        </ul>
       </div>
     );
   }
