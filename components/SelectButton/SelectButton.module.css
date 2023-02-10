@@ -5,7 +5,7 @@
 }
 
 .selectButton {
-    background-color: none;
+    background-color: transparent;
     width: fit-content;
     color: lightgrey;
     padding: 8px;

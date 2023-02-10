@@ -20,9 +20,9 @@ const GetNewsFeeds = ({ source }) => {
     case "las-vegas-review-journal":
       url = "https://www.reviewjournal.com/feed/";
       break;
-    // case "mercury-news":
-    //   url = "https://www.mercurynews.com/feed";
-    //   break;
+    case "mercury-news":
+      url = "https://www.mercurynews.com/feed";
+      break;
     // case "one-america-news":
     //   url = "https://www.oann.com/category/newsroom/feed";
     //   break;

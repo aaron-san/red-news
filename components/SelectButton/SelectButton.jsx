@@ -4,7 +4,7 @@ import styles from "./SelectButton.module.css";
 const SelectButton = ({ source, setSource }) => {
   const handleChange = (e) => {
     setSource(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   return (
@@ -30,13 +30,13 @@ const SelectButton = ({ source, setSource }) => {
         </option> */}
         {/* <option value="daily-caller" className={styles.option}>
           Daily Caller
-        </option>
+        </option> */}
         <option value="mercury-news" className={styles.option}>
           Mercury News
-        </option> */}
-        {/* <option value="daily-wire" className={styles.option}>
+        </option>
+        <option value="daily-wire" className={styles.option}>
           Daily Wire
-        </option> */}
+        </option>
         <option value="bongino-report" className={styles.option}>
           Bongino Report
         </option>
