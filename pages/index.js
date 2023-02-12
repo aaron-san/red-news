@@ -70,6 +70,7 @@ export default function Home() {
         </div> */}
       </main>
 
+      <FilterBar />
       <footer className={styles.footer}>
         {/* <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -81,7 +82,6 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a> */}
-        <FilterBar />
         <p>Copyright FinCoder {new Date().getFullYear()}</p>
       </footer>
     </div>
