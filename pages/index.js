@@ -7,7 +7,8 @@ import JapaneseWords from "../components/JapaneseWords";
 import NewsFeeds from "../components/NewsFeeds/NewsFeeds";
 import GetNewsFeeds from "../components/NewsFeeds/GetNewsFeeds";
 import SelectButton from "../components/SelectButton/SelectButton";
-import cors from "cors";
+import FilterBar from "../components/FilterBar/FilterBar";
+// import cors from "cors";
 // const cors = require("cors");
 // app.use(cors());
 
@@ -80,7 +81,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a> */}
-
+        <FilterBar />
         <p>Copyright FinCoder {new Date().getFullYear()}</p>
       </footer>
     </div>

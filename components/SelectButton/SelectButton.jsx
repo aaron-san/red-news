@@ -15,11 +15,11 @@ const SelectButton = ({ source, setSource }) => {
         className={styles.selectButton}
         onChange={handleChange}
       >
-        <option value="fox-news" className={styles.option}>
-          Fox News
-        </option>
         <option value="las-vegas-review-journal" className={styles.option}>
           Las Vegas Review
+        </option>
+        <option value="fox-news" className={styles.option}>
+          Fox News
         </option>
 
         <option value="the-blaze" className={styles.option}>
