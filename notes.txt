@@ -4,3 +4,9 @@ npx create-next-app portfolio-blog
 
 
 Can delete .next (build) folder and do 'npm install' if the build is not clean
+
+
+# Categories
+contained in permalink
+entertainment
+sports

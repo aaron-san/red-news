@@ -58,15 +58,24 @@ const GetNewsFeeds = ({ source }) => {
           var items = xmlDoc.querySelectorAll("item");
           let itemsArray = Array.from(items);
 
+          // console.log(items);
           let itemsArr = [];
-          itemsArray.forEach((item) => {
-            let title = item.querySelector("title").innerHTML;
+          itemsArray
+            .filter((item) => {
+              let permalink = item.querySelector("guid").innerHTML;
+              return !/sports|entertainment/.test(permalink);
+            })
+            .forEach((item) => {
+              let title = item.querySelector("title").innerHTML;
 
-            title;
+              let category = item.querySelector("category");
+              // console.log(category);
 
-            let permalink = item.querySelector("guid").innerHTML;
-            itemsArr = [...itemsArr, { title: title, url: permalink }];
-          });
+              let permalink = item.querySelector("guid").innerHTML;
+              // console.log(permalink.includes("sports"));
+              console.log(/sports|entertainment/.test(permalink));
+              itemsArr = [...itemsArr, { title: title, url: permalink }];
+            });
           setPosts(itemsArr);
         });
     }
