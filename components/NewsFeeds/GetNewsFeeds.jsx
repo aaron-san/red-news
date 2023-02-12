@@ -47,6 +47,8 @@ const GetNewsFeeds = ({ source }) => {
   useEffect(() => {
     setIsLoading(true);
 
+    const regPattern =
+      /sports|entertainment|media|super-bowl|magic-mike|lebron|basketball|football|nba|nfl|mlb/;
     async function fetchPosts(url) {
       await axios
         .get("https://corsanywhere.herokuapp.com/" + url)
@@ -61,19 +63,57 @@ const GetNewsFeeds = ({ source }) => {
           // console.log(items);
           let itemsArr = [];
           itemsArray
+            // .forEach((item) => {
+            //   console.log(item);
+            // })
             .filter((item) => {
               let permalink = item.querySelector("guid").innerHTML;
-              return !/sports|entertainment|media/.test(permalink);
+              return !regPattern.test(permalink);
             })
-            .forEach((item) => {
-              let title = item.querySelector("title").innerHTML;
+            .filter((item) => {
+              let link = item.querySelector("link");
+              // console.log(link);
+              if (link) {
+                let linkText = link.innerHTML;
+                // console.log(linkText);
+                return !regPattern.test(linkText.toLocaleLowerCase());
+              }
+              return true;
+            })
+            .filter((item) => {
+              let categories = [];
+              let category = item.querySelectorAll("category");
 
-              let category = item.querySelector("category");
+              Array.from(category).map((el) => {
+                categories.push(el.innerHTML.toLocaleLowerCase());
+              });
+              let categoriesJoined = JSON.stringify(
+                categories
+                  .join(", ")
+                  .replaceAll("<![cdata[", "")
+                  .replaceAll("]]", "")
+                  .replaceAll(">", "")
+              );
+              console.log(categoriesJoined);
+              return !regPattern.test(categoriesJoined.toLocaleLowerCase());
+              // console.log(categoriesJoined);
+              // return true;
+            })
+
+            .forEach((item) => {
+              console.log(item);
+              let title = item
+                .querySelector("title")
+                .innerHTML.replaceAll("<![CDATA[", "")
+                .replaceAll("]]>", "");
+
+              // let category = item.querySelector("category");
               // console.log(category);
 
               let permalink = item.querySelector("guid").innerHTML;
+
               // console.log(permalink.includes("sports"));
-              console.log(/sports|entertainment/.test(permalink));
+              console.log(regPattern.test(permalink));
               itemsArr = [...itemsArr, { title: title, url: permalink }];
             });
           setPosts(itemsArr);
@@ -100,13 +140,17 @@ const GetNewsFeeds = ({ source }) => {
           </div>
         );
       })} */}
-        {posts.slice(0, 15).map((post) => {
-          return (
-            <div className={styles.headlineContainer} key={post.url}>
-              <a href={post.url}>{post.title}</a>
-            </div>
-          );
-        })}
+        {posts.slice(0, 15).length === 0 ? (
+          <div>No data</div>
+        ) : (
+          posts.slice(0, 15).map((post) => {
+            return (
+              <div className={styles.headlineContainer} key={post.url}>
+                <a href={post.url}>{post.title}</a>
+              </div>
+            );
+          })
+        )}
       </div>
     );
   }
