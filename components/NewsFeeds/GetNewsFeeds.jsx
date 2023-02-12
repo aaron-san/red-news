@@ -63,7 +63,7 @@ const GetNewsFeeds = ({ source }) => {
           itemsArray
             .filter((item) => {
               let permalink = item.querySelector("guid").innerHTML;
-              return !/sports|entertainment/.test(permalink);
+              return !/sports|entertainment|media/.test(permalink);
             })
             .forEach((item) => {
               let title = item.querySelector("title").innerHTML;

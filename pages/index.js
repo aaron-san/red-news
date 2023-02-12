@@ -14,7 +14,7 @@ import FilterBar from "../components/FilterBar/FilterBar";
 
 export default function Home() {
   // Set the news source
-  const [source, setSource] = useState("fox-news");
+  const [source, setSource] = useState("las-vegas-review-journal");
 
   return (
     <div className={styles.container}>
