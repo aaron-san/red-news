@@ -51,6 +51,7 @@ const GetNewsFeeds = ({ source }) => {
       /sports|entertainment|media|super-bowl|magic-mike|lebron|basketball|football|nba|nfl|mlb/;
     async function fetchPosts(url) {
       await axios
+        // Helps avoid some of the cors problems
         .get("https://corsanywhere.herokuapp.com/" + url)
         .then((res) => {
           const feeds = res.data;
@@ -131,15 +132,6 @@ const GetNewsFeeds = ({ source }) => {
     // console.log(data);
     return (
       <div className="div-container">
-        {/* {posts.slice(0, 15).map((item) => {
-        return (
-          <div key={item.title} className={styles.headlineContainer}>
-            <a href={item.guid} className={styles.headline}>
-              {item.title}
-            </a>
-          </div>
-        );
-      })} */}
         {posts.slice(0, 15).length === 0 ? (
           <div>No data</div>
         ) : (
