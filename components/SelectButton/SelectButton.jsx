@@ -15,8 +15,8 @@ const SelectButton = ({ source, setSource }) => {
         className={styles.selectButton}
         onChange={handleChange}
       >
-        <option value="mercury-news" className={styles.option}>
-          Mercury News
+        <option value="american-greatness" className={styles.option}>
+          American Greatness
         </option>
         <option value="las-vegas-review-journal" className={styles.option}>
           Las Vegas Review
@@ -27,6 +27,9 @@ const SelectButton = ({ source, setSource }) => {
 
         <option value="the-blaze" className={styles.option}>
           The Blaze
+        </option>
+        <option value="mercury-news" className={styles.option}>
+          Mercury News
         </option>
         {/* <option value="one-america-news" className={styles.option}>
           One America News

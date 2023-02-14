@@ -35,6 +35,9 @@ const GetNewsFeeds = ({ source }) => {
     case "the-blaze":
       url = "https://www.theblaze.com/feeds/feed.rss";
       break;
+    case "american-greatness":
+      url = "https://amgreatness.com/feed/";
+      break;
     default:
       // url = "https://moxie.foxnews.com/google-publisher/world.xml";
       throw new Error("please choose a news source");
@@ -135,7 +138,7 @@ const GetNewsFeeds = ({ source }) => {
         {posts.slice(0, 15).length === 0 ? (
           <div>No data</div>
         ) : (
-          posts.slice(0, 15).map((post) => {
+          posts.slice(0, 20).map((post) => {
             return (
               <div className={styles.headlineContainer} key={post.url}>
                 <a href={post.url}>{post.title}</a>
