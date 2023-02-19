@@ -1,5 +1,12 @@
 # Deployment
 
+https://github.com/aaron-san/red-news
+
+git init
+git remote add origin <url>
+git fetch
+git reset origin/master
+
 This project is hosted on Vercel. It is connected to Github repository, so simply push changes to GitHub to update site.
 
 ```batch
