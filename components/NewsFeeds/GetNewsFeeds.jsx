@@ -48,7 +48,7 @@ const GetNewsFeeds = ({ source }) => {
   // const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
 
     const regPattern =
       /sports|entertainment|media|super-bowl|magic-mike|lebron|basketball|football|nba|nfl|mlb/;
@@ -65,6 +65,7 @@ const GetNewsFeeds = ({ source }) => {
           let itemsArray = Array.from(items);
 
           // console.log(items);
+
           let itemsArr = [];
           itemsArray
             // .forEach((item) => {
@@ -98,56 +99,83 @@ const GetNewsFeeds = ({ source }) => {
                   .replaceAll("]]", "")
                   .replaceAll(">", "")
               );
-              console.log(categoriesJoined);
+              // console.log(categoriesJoined);
               return !regPattern.test(categoriesJoined.toLocaleLowerCase());
               // console.log(categoriesJoined);
               // return true;
             })
 
             .forEach((item) => {
-              console.log(item);
+              // console.log(item);
               let title = item
                 .querySelector("title")
                 .innerHTML.replaceAll("<![CDATA[", "")
                 .replaceAll("]]>", "");
 
-              // let category = item.querySelector("category");
-              // console.log(category);
-
               let permalink = item.querySelector("guid").innerHTML;
 
+              let creator = item.querySelector("creator");
+              if (creator.innerHTML.includes("Victor Davis Hanson")) {
+                itemsArr = [
+                  ...itemsArr,
+                  { ...item, title: title, url: permalink, creator: "VDH" },
+                ];
+              }
+
               // console.log(permalink.includes("sports"));
-              console.log(regPattern.test(permalink));
+              // console.log(regPattern.test(permalink));
               itemsArr = [...itemsArr, { title: title, url: permalink }];
+
+              // itemsArr.forEach((item) => {
+              // let creator = item.querySelector("creator");
+              // if (creator.innerHTML.includes("Victor Davis Hanson")) {
+              //   itemsArr = [...itemsArr, { ...item, creator: "VDH" }];
+              // }
+              // });
             });
           setPosts(itemsArr);
         });
     }
 
     fetchPosts(url);
-    setIsLoading(false);
+    // setIsLoading(false);
   }, [url]);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!posts) {
-    return <p>No data loaded</p>;
-  } else {
-    // console.log(data);
+  // if (isLoading) return <p>Loading...</p>;
+
+  if (posts) {
+    // setIsLoading(false);
     return (
       <div className="div-container">
-        {posts.slice(0, 15).length === 0 ? (
-          <div>No data</div>
+        {posts.slice(0, 20).length === 0 ? (
+          <div>Loading...</div>
         ) : (
           posts.slice(0, 20).map((post) => {
-            return (
-              <div className={styles.headlineContainer} key={post.url}>
-                <a href={post.url}>{post.title}</a>
-              </div>
-            );
+            if (post.creator === "VDH") {
+              return (
+                <div
+                  className={styles.VDHContainer}
+                  key={post.url + post.creator}
+                >
+                  <a href={post.url}>{post.title}</a>
+                </div>
+              );
+            } else {
+              return (
+                <div
+                  className={styles.headlineContainer}
+                  key={post.url + post.creator}
+                >
+                  <a href={post.url}>{post.title}</a>
+                </div>
+              );
+            }
           })
         )}
       </div>
     );
+  } else {
+    return <p>No data loaded</p>;
   }
 };
 
