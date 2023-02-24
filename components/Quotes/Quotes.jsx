@@ -8,9 +8,9 @@ function Quotes() {
 
   useEffect(() => {
     // let quotesCopy = [...quotes];
-    const randomNum = Math.floor(Math.random() * (quotesData.length - 3));
+    const randomNum = Math.floor(Math.random() * (quotesData.length - 4));
 
-    const quotesSubset = quotesData.slice(randomNum, randomNum + 6);
+    const quotesSubset = quotesData.slice(randomNum, randomNum + 4);
     setQuotes(quotesSubset);
   }, []);
 
