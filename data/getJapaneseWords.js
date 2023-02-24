@@ -19,7 +19,7 @@ rowEnd = range.split(":")[1].match(/\d/gi).join("");
 // "11056"
 
 // Manually define the cell arrays to read
-worksheet["!ref"] = colStart + rowStart + ":" + "B" + "4000";
+worksheet["!ref"] = colStart + rowStart + ":" + "D" + "4000";
 
 let jsObj = XLSX.utils.sheet_to_json(worksheet);
 

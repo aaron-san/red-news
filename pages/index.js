@@ -2,7 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Quotes from "../components/Quotes";
+import Quotes from "../components/Quotes/Quotes";
 import JapaneseWords from "../components/JapaneseWords";
 import NewsFeeds from "../components/NewsFeeds/NewsFeeds";
 import GetNewsFeeds from "../components/NewsFeeds/GetNewsFeeds";
@@ -32,10 +32,7 @@ export default function Home() {
         {/* <NewsFeeds source={source} /> */}
         <GetNewsFeeds source={source} />
         {/* <p>-----------------------------------------</p> */}
-        {/* <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        {/* 
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
@@ -69,6 +66,8 @@ export default function Home() {
       </main>
 
       <FilterBar />
+      <Quotes />
+      <JapaneseWords />
       <footer className={styles.footer}>
         {/* <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -80,8 +79,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a> */}
-        <Quotes />
-        <JapaneseWords />
+
         <p>Copyright FinCoder {new Date().getFullYear()}</p>
       </footer>
     </div>
