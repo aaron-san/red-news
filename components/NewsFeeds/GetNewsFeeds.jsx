@@ -137,7 +137,8 @@ const GetNewsFeeds = ({ source }) => {
         });
     }
 
-    // fetchPosts(url);
+    // Comment out for offline work
+    fetchPosts(url);
     // setIsLoading(false);
   }, [url]);
 
