@@ -27,7 +27,7 @@ function JapaneseWords() {
             <span className={styles.furigana}>
               {word["Dictionary（じしょ形）"]}
             </span>
-            <span className={styles.english}>{word.English}</span>
+            <div className={styles.english}>- {word.English}</div>
           </div>
         );
       })}
