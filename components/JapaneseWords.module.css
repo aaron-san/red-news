@@ -19,4 +19,6 @@
 
 .furigana {
   padding: 30px;
+  color: rgb(182, 179, 179);
+  font-size: 0.9rem;
 }
