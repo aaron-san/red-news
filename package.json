@@ -4,7 +4,7 @@
   "private": true,
   "url": "https://red-news.vercel.app/",
   "scripts": {
-    "dev": "node data/getQuotes.js && echo 'Got quotes' && node data/getJapaneseWords.js && echo 'Got Japanese words' && next dev",
+    "dev": "node data/getQuotes.js && echo 'Got quotes' && node data/getJapaneseWords.js && echo 'Got Japanese words' && next dev -p 3051",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

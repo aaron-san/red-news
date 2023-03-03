@@ -10,6 +10,49 @@
   font-size: 1.1rem;
 }
 
+.loading {
+  display: inline-block;
+  margin-top: 50px;
+  font-size: 2rem;
+  /* opacity: 1; */
+  /* transition: opacity 2s; */
+  /* animation-name: cycleOpacity; */
+  /* animation-duration: 2s; */
+  /* animation-iteration-count: infinite; */
+}
+
+.LoadingDots {
+  font-size: 2rem;
+  display: inline-block;
+}
+
+.loadingDotsOne {
+  animation: cycleDots 1s 0s infinite;
+  display: inline-block;
+}
+
+.loadingDotsTwo {
+  animation: cycleDots 1s 0.33s infinite;
+  display: inline-block;
+}
+
+.loadingDotsThree {
+  animation: cycleDots 1s 0.66s infinite;
+  display: inline-block;
+}
+
+@keyframes cycleDots {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .headlineContainer {
   box-shadow: 0 0 5px lightslategray;
   border-radius: 6px;

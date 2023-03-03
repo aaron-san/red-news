@@ -30,8 +30,9 @@ export default function Home() {
 
       <main className={styles.main}>
         {/* <NewsFeeds source={source} /> */}
+
         <GetNewsFeeds source={source} />
-        {/* <p>-----------------------------------------</p> */}
+
         {/* 
 
         <div className={styles.grid}>
@@ -65,7 +66,7 @@ export default function Home() {
         </div> */}
       </main>
 
-      <FilterBar />
+      {/* <FilterBar /> */}
       <Quotes />
       <JapaneseWords />
       <footer className={styles.footer}>

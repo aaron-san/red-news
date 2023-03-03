@@ -137,7 +137,7 @@ const GetNewsFeeds = ({ source }) => {
         });
     }
 
-    fetchPosts(url);
+    // fetchPosts(url);
     // setIsLoading(false);
   }, [url]);
 
@@ -148,7 +148,12 @@ const GetNewsFeeds = ({ source }) => {
     return (
       <div className="div-container">
         {posts.slice(0, 20).length === 0 ? (
-          <div>Loading...</div>
+          <div className={styles.loading}>
+            <div className={styles.loading}>Loading</div>
+            <div className={styles.loadingDotsOne}>.</div>
+            <div className={styles.loadingDotsTwo}>.</div>
+            <div className={styles.loadingDotsThree}>.</div>
+          </div>
         ) : (
           posts.slice(0, 20).map((post) => {
             if (post.creator === "VDH") {
