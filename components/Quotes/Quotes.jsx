@@ -15,7 +15,7 @@ function Quotes() {
   }, []);
 
   return (
-    <div className={styles.quotesContainer}>
+    <div className="container">
       <h4>Quotes</h4>
       {/* <ul> */}
       {quotes.map((quote) => {

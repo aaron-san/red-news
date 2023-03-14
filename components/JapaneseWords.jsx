@@ -15,7 +15,7 @@ function JapaneseWords() {
   }, []);
 
   return (
-    <div className={styles.japaneseContainer}>
+    <div className="container">
       <h4>Japanese Words</h4>
       {jWords.map((word) => {
         return (

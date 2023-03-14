@@ -14,6 +14,9 @@ const GetNewsFeeds = ({ source }) => {
     case "fox-news":
       url = "https://moxie.foxnews.com/google-publisher/latest.xml";
       break;
+    case "daily-signal":
+      url = "https://dailysignal.com/feed/";
+      break;
     // case "daily-caller":
     //   url = "http://feeds.feedburner.com/dailycaller";
     //   break;
@@ -114,17 +117,40 @@ const GetNewsFeeds = ({ source }) => {
 
               let permalink = item.querySelector("guid").innerHTML;
 
-              let creator = item.querySelector("creator");
-              if (creator.innerHTML.includes("Victor Davis Hanson")) {
-                itemsArr = [
-                  ...itemsArr,
-                  { ...item, title: title, url: permalink, creator: "VDH" },
-                ];
+              if (source === "american-greatness") {
+                let creator = item.querySelector("creator");
+                if (creator.innerHTML.includes("Victor Davis Hanson")) {
+                  itemsArr = [
+                    ...itemsArr,
+                    { ...item, title: title, url: permalink, creator: "VDH" },
+                  ];
+                } else {
+                  itemsArr = [...itemsArr, { title: title, url: permalink }];
+                }
+              } else if (source === "daily-signal") {
+                // let creator = item.querySelector("creator");
+                // console.log(
+                //   creator.innerHTML.toLocaleLowerCase().includes("ben shapiro")
+                // );
+                // console.log(item);
+                itemsArr = [...itemsArr, { title: title, url: permalink }];
+              } else if (source === "daily-wire") {
+                ////
+                // Ben Shapiro's articles appear to be locked and for paid members only
+                ////
+                // console.log(item);
+                // let creator = item.querySelector("creator");
+                // console.log(
+                //   creator.innerHTML.toLocaleLowerCase().includes("ben shapiro")
+                // );
+                // console.log(item);
+                itemsArr = [...itemsArr, { title: title, url: permalink }];
+              } else {
+                itemsArr = [...itemsArr, { title: title, url: permalink }];
               }
 
               // console.log(permalink.includes("sports"));
               // console.log(regPattern.test(permalink));
-              itemsArr = [...itemsArr, { title: title, url: permalink }];
 
               // itemsArr.forEach((item) => {
               // let creator = item.querySelector("creator");
@@ -142,14 +168,12 @@ const GetNewsFeeds = ({ source }) => {
     // setIsLoading(false);
   }, [url]);
 
-  // if (isLoading) return <p>Loading...</p>;
-
   if (posts) {
     // setIsLoading(false);
     return (
-      <div className="div-container">
+      <div className="container">
         {posts.slice(0, 20).length === 0 ? (
-          <div className={styles.loading}>
+          <div className={styles.loading_container}>
             <div className={styles.loading}>Loading</div>
             <div className={styles.loadingDotsOne}>.</div>
             <div className={styles.loadingDotsTwo}>.</div>

@@ -10,11 +10,15 @@
   font-size: 1.1rem;
 }
 
-.loading {
-  display: inline-block;
+.loading_container {
   margin-top: 50px;
+  color: rgba(234, 231, 231, 0.447);
   font-size: 1.5rem;
-  color: rgba(218, 217, 217, 0.447);
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
   /* opacity: 1; */
   /* transition: opacity 2s; */
   /* animation-name: cycleOpacity; */
@@ -24,7 +28,7 @@
 
 .LoadingDots {
   font-size: 2rem;
-  display: inline-block;
+  display: inline;
 }
 
 .loadingDotsOne {
