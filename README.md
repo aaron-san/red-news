@@ -1,4 +1,13 @@
-# Deployment
+# Republish
+
+```bat
+npm run dev
+git add .
+git commit -m "message"
+git push
+```
+
+# Initial Deployment
 
 https://github.com/aaron-san/red-news
 
@@ -9,22 +18,14 @@ git reset origin/master
 
 This project is hosted on Vercel. It is connected to Github repository, so simply push changes to GitHub to update site.
 
-```batch
-git add .
-git commit -m "message"
-git push
-```
-
 Visit at ['red-news.vercel.app'](https://red-news.vercel.app)
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
+```batch
 npm run dev
-# or
-yarn dev
 ```
 
 npm i xlsx
