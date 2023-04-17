@@ -18,11 +18,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rss-parser": "^3.12.0",
+    "rss-to-json": "^2.1.1",
+    "vanilla-rss": "^1.4.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "json-loader": "^0.5.7"
-  }
+  },
+  "proxy": "http://localhost:3051"
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./SelectButton.module.css";
 
 const SelectButton = ({ source, setSource }) => {
+  // When selection changes, update source
   const handleChange = (e) => {
     setSource(e.target.value);
     // console.log(e.target.value);

@@ -7,6 +7,7 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+
   // async headers() {
   //   return [
   //     {
@@ -28,10 +29,14 @@ const nextConfig = {
   //     },
   //   ];
   // },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/api/:path*",
+  //       destination: "http://localhost:3051/:path*",
+  //     },
+  //   ];
+  // },
 };
 
 module.exports = nextConfig;
-
-// module.exports = {
-
-// };

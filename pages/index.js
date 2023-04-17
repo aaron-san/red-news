@@ -4,17 +4,16 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Quotes from "../components/Quotes/Quotes";
 import JapaneseWords from "../components/JapaneseWords";
-import NewsFeeds from "../components/NewsFeeds/NewsFeeds";
 import GetNewsFeeds from "../components/NewsFeeds/GetNewsFeeds";
 import SelectButton from "../components/SelectButton/SelectButton";
 import FilterBar from "../components/FilterBar/FilterBar";
-// import cors from "cors";
-// const cors = require("cors");
-// app.use(cors());
+// import { getPosts } from "../pages/getPosts";
 
 export default function Home() {
   // Set the news source
+  // const [source, setSource] = useState("american-greatness");
   const [source, setSource] = useState("american-greatness");
+  // getPosts();
 
   return (
     <div>
@@ -39,30 +38,7 @@ export default function Home() {
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth...</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.j...</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy...</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Instantly deploy with Vercel.</p>
-          </a>
+     
         </div> */}
         </main>
 

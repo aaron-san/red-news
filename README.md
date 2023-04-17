@@ -1,4 +1,10 @@
-# Republish
+# Run development server
+
+```bat
+npm run dev
+```
+
+# Publish after edits
 
 ```bat
 npm run dev
