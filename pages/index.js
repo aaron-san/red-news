@@ -24,7 +24,7 @@ export default function Home() {
       </Head>
       <div className={styles.header}>
         <h1 className={styles.title}>Red News</h1>
-        <SelectButton source={source} setSource={setSource} />
+        <SelectButton setSource={setSource} />
       </div>
       <div className="container">
         <main className={styles.main}>

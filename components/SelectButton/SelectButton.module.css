@@ -1,16 +1,14 @@
-
 .buttonContainer {
- display: absolute;
- /* justify-self: flex-start;    */
+  display: absolute;
+  /* justify-self: flex-start;    */
 }
 
 .selectButton {
-    background-color: transparent;
-    width: fit-content;
-    color: lightgrey;
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid rgb(176, 171, 171);
-    border-radius: 2px;
+  background: rgb(62, 61, 67);
+  width: fit-content;
+  color: whitesmoke;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid rgb(176, 171, 171);
+  border-radius: 2px;
 }
-
