@@ -4,7 +4,7 @@
 npm run dev
 ```
 
-# Publish after edits
+# Publish
 
 ```bat
 npm run dev
