@@ -70,7 +70,9 @@ const GetNewsFeeds = ({ source }) => {
                   className={styles.VDHContainer}
                   key={post.url + post.creator}
                 >
-                  <a href={post.url}>{post.title}</a>
+                  <a href={post.url} target="_blank">
+                    {post.title}
+                  </a>
                 </div>
               );
             } else {
