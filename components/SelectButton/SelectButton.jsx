@@ -21,19 +21,19 @@ const SelectButton = ({ setSource }) => {
         <option value="daily-signal" className={styles.option}>
           Daily Signal
         </option>
-        <option value="daily-wire" className={styles.option}>
+        {/* <option value="daily-wire" className={styles.option}>
           Daily Wire
-        </option>
-        <option value="las-vegas-review-journal" className={styles.option}>
+        </option> */}
+        {/* <option value="las-vegas-review-journal" className={styles.option}>
           Las Vegas Review
-        </option>
+        </option> */}
         <option value="fox-news" className={styles.option}>
           Fox News
         </option>
 
-        <option value="the-blaze" className={styles.option}>
+        {/* <option value="the-blaze" className={styles.option}>
           The Blaze
-        </option>
+        </option> */}
         {/* <option value="mercury-news" className={styles.option}>
           Mercury News
         </option> */}
@@ -43,9 +43,9 @@ const SelectButton = ({ setSource }) => {
         {/* <option value="daily-caller" className={styles.option}>
           Daily Caller
         </option> */}
-        <option value="bongino-report" className={styles.option}>
+        {/* <option value="bongino-report" className={styles.option}>
           Bongino Report
-        </option>
+        </option> */}
       </select>
     </div>
   );
